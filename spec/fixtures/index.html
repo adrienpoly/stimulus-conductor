@@ -1,0 +1,29 @@
+<div data-controller="todos" id="todos">
+  <h4>Filters</h4>
+
+  <input type="radio" name="radiodemo" data-action="todos#displayAll" checked />
+  <input type="radio" name="radiodemo" data-action="todos#displayDone" />
+  <input type="radio" name="radiodemo" data-action="todos#displayUndone" />
+
+  <h4>Todos</h4>
+  <div data-controller="todo" id="todo1">
+    <label>
+      <input type="checkbox" data-target="todo.checkbox" />
+      <span class="checkable">Task 1</span>
+    </label>
+  </div>
+
+  <div data-controller="todo">
+    <label>
+      <input type="checkbox" checked data-target="todo.checkbox" />
+      <span class="checkable">Task 2</span>
+    </label>
+  </div>
+
+  <div data-controller="todo">
+    <label>
+      <input type="checkbox" data-target="todo.checkbox" />
+      <span class="checkable">Task 3</span>
+    </label>
+  </div>
+</div>
