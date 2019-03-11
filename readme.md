@@ -29,7 +29,11 @@ $ npm i stimulus-conductor
 
 #### Define your html
 
-Parent conductor is the plural of the item name
+Parent conductor is the plural of the item name:
+
+- `todo` is conducted by `todos`
+- `item` is conducted by `items`
+- `chart` is conducted by `charts`
 
 ```html
 <div data-controller="items">
@@ -76,7 +80,7 @@ export default class extends conductor {
 
 ## Example
 
-An very basic todo list example is available here : [playground](https://github.com/adrienpoly/stimulus-conductor/playground)
+An very basic todo list example is available here : [playground](./playground)
 
 You can start it as follow:
 
