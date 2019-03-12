@@ -6,8 +6,8 @@
 <br />
 
 - **Conventions**: Parent/children Stimulus controllers defined by simple conventions
-- **has many** : an `items` controller has many `item` controllers
-- **belongs to** : `item` controllers belong to an `items` controller
+- **Has many** : an `items` controller has many `item` controllers
+- **bBelongs to** : `item` controllers belong to an `items` controller
 - **MIT Licensed**: free for personal and commercial use
 
 ## Getting started
@@ -26,17 +26,17 @@ or
 $ npm i stimulus-conductor
 ```
 
-#### Convetions
+### Convetions
 
 There is a single convetion to remember to use this package:
 
-**Parent conductor is the plural of the children items name**
+>**Parent conductor is the plural of the children items name**
+>
+>- `todo` controllers are conducted by an `todos` controller
+>- `item` controllers are conducted by an `items` controller
+>- `chart` controllers are conducted by an `charts` controller
 
-- `todo` controllers are conducted by a `todos` controller
-- `item` controllers are conducted by a `items` controller
-- `chart` controllers are conducted by a `charts` controller
-
-#### Define your html
+### Define your html
 
 ```html
 <div data-controller="items">
@@ -46,7 +46,7 @@ There is a single convetion to remember to use this package:
 </div>
 ```
 
-#### Define your parent controllers by extending `stimulus-conductor`
+### Define your parent controllers by extending `stimulus-conductor`
 
 ```js
 // ./controllers/items_controller.js
@@ -66,9 +66,9 @@ export default class extends Conductor {
 }
 ```
 
-By convention the parent controller has a new class method `this.itemControllers` that return an array of all children controllers
+>By **convention** the parent controller has a new class method `this.itemControllers` that return an array of all children controllers
 
-#### Define your children controllers by extending `stimulus-conductor`
+### Define your children controllers by extending `stimulus-conductor`
 
 ```js
 // ./controllers/item_controller.js
@@ -86,7 +86,7 @@ export default class extends Conductor {
 }
 ```
 
-By convention all children controllers have a new class method `this.itemsController` that return the parent controller
+>By **convention** all children controllers have a new class method `this.itemsController` that return the parent controller
 
 ## Example
 
