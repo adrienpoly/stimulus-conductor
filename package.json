@@ -1,6 +1,6 @@
 {
   "name": "stimulus-conductor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An optionated Stimulus Controller to easily manage parent/children controllers",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
