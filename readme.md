@@ -7,7 +7,7 @@
 
 - **Conventions**: Parent/children Stimulus controllers defined by simple conventions
 - **Has many** : an `items` controller has many `item` controllers
-- **bBelongs to** : `item` controllers belong to an `items` controller
+- **Belongs to** : `item` controllers belong to an `items` controller
 - **MIT Licensed**: free for personal and commercial use
 
 ## Getting started
@@ -30,11 +30,11 @@ $ npm i stimulus-conductor
 
 There is a single convention to remember to use this package:
 
->**Parent conductor is the plural of the children items name**
+> **Parent conductor is the plural of the children items name**
 >
->- `todo` controllers are conducted by an `todos` controller
->- `item` controllers are conducted by an `items` controller
->- `chart` controllers are conducted by an `charts` controller
+> - `todo` controllers are conducted by an `todos` controller
+> - `item` controllers are conducted by an `items` controller
+> - `chart` controllers are conducted by an `charts` controller
 
 ### Define your html
 
@@ -71,7 +71,7 @@ export default class extends Conductor {
 }
 ```
 
->By **convention** the parent controller has a new class method `this.itemControllers` that return an array of all children controllers
+> By **convention** the parent controller has a new class method `this.itemControllers` that return an array of all children controllers
 
 ### Define your children controllers by extending `stimulus-conductor`
 
@@ -91,7 +91,7 @@ export default class extends Conductor {
 }
 ```
 
->By **convention** all children controllers have a new class method `this.itemsController` that return the parent controller
+> By **convention** all children controllers have a new class method `this.itemsController` that return the parent controller
 
 ## Example
 
