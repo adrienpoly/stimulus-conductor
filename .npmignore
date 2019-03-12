@@ -1,6 +1,13 @@
 .babelrc
+.babelrc.js
 .DS_Store
 .gitignore
 .yarn.lock
+karma.conf.js
+yarn-error.log
 /.git
 /node_modules
+/.vscode
+/coverage
+/playground
+/spec
