@@ -1,7 +1,7 @@
 <h1 align="center">Stimulus-Conductor</h1>
 
 <p align="center">
-  <b>👩‍👧‍👦 👨‍👧‍👦 : An optionated Stimulus Controller to easily manage Parent/Children controllers</b></br>
+  <b>👩‍👧‍👦 👨‍👧‍👦 : An optionated Stimulus Controller to easily manage Parent/Children controllers with conventions</b></br>
 </p>
 <br />
 
@@ -26,9 +26,9 @@ or
 $ npm i stimulus-conductor
 ```
 
-### Convetions
+### Conventions
 
-There is a single convetion to remember to use this package:
+There is a single convention to remember to use this package:
 
 >**Parent conductor is the plural of the children items name**
 >
