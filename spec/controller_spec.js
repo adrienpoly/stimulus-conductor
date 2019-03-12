@@ -6,6 +6,7 @@ import { beforeEachSuite } from "./helpers";
 import chai, { expect } from "chai";
 import chaiDom from "chai-dom";
 import sinonChai from "sinon-chai";
+import { Promise } from "core-js";
 
 chai.use(chaiDom);
 chai.use(sinonChai);
@@ -49,6 +50,18 @@ describe("My controller tests", function() {
       );
       expect(controller.todoControllers).to.be.an("array");
       expect(controller.todoControllers.length).to.eq(3);
+    });
+
+    it("removing a todo element updates the todoControllers count", async function() {
+      const todos = fixture.el.querySelector("#todos");
+      const controller = application.getControllerForElementAndIdentifier(
+        todos,
+        "todos"
+      );
+      fixture.el.querySelector("#todo2").remove();
+      await Promise.resolve();
+      expect(controller.todoControllers).to.be.an("array");
+      expect(controller.todoControllers.length).to.eq(2);
     });
   });
 

@@ -69,27 +69,7 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-    return arr2;
-  }
-}
-
-function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-
-var _default =
+let _default =
 /*#__PURE__*/
 function (_Controller) {
   _inherits(_default, _Controller);
@@ -106,25 +86,59 @@ function (_Controller) {
       this._searchForConductor();
     }
   }, {
+    key: "disconnect",
+    value: function disconnect() {
+      this._hasConductor && this._conductorController._removeMusician(this);
+    }
+  }, {
     key: "_searchForConductor",
     value: function _searchForConductor() {
-      var conductor = this.element.closest("[data-controller*=\"".concat(this._conductorName, "\"]"));
+      const conductor = this.element.closest(`[data-controller*="${this._conductorName}"]`);
 
       if (conductor) {
-        var conductorController = this.application.getControllerForElementAndIdentifier(conductor, this._conductorName);
-        this["".concat(this._conductorName, "Controller")] = conductorController;
-        conductorController && conductorController._addMusician(this);
+        const conductorController = this.application.getControllerForElementAndIdentifier(conductor, this._conductorName);
+        this[`${this._conductorName}Controller`] = conductorController;
+        this._hasConductor && this._conductorController._addMusician(this);
       }
     }
   }, {
     key: "_addMusician",
     value: function _addMusician(musicianController) {
-      this["".concat(musicianController.identifier, "Controllers")] = [].concat(_toConsumableArray(this["".concat(musicianController.identifier, "Controllers")] || []), [musicianController]);
+      this[`${musicianController.identifier}Controllers`] = [...(this[`${musicianController.identifier}Controllers`] || []), musicianController];
+    }
+  }, {
+    key: "_removeMusician",
+    value: function _removeMusician(musicianController) {
+      const index = this._musicianControllers.indexOf(musicianController);
+
+      if (index > -1) {
+        this._musicianControllers.splice(index, 1);
+      }
+    }
+  }, {
+    key: "_hasConductor",
+    get: function () {
+      return typeof this._conductorController !== "undefined";
+    }
+  }, {
+    key: "_conductorController",
+    get: function () {
+      return this[`${this._conductorName}Controller`];
+    }
+  }, {
+    key: "_musicianControllers",
+    get: function () {
+      return this[`${this._musicianName}Controllers`];
     }
   }, {
     key: "_conductorName",
-    get: function get() {
-      return this.constructor.conductorId || "".concat(this.identifier, "s");
+    get: function () {
+      return this.constructor.conductorId || `${this.identifier}s`;
+    }
+  }, {
+    key: "_musicianName",
+    get: function () {
+      return this.constructor.musicianId || `${this.identifier.slice(0, this.identifier.length - 1)}`;
     }
   }]);
 

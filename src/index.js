@@ -5,6 +5,10 @@ export default class extends Controller {
     this._searchForConductor();
   }
 
+  disconnect() {
+    this._hasConductor && this._conductorController._removeMusician(this);
+  }
+
   _searchForConductor() {
     const conductor = this.element.closest(
       `[data-controller*="${this._conductorName}"]`
@@ -18,7 +22,7 @@ export default class extends Controller {
 
       this[`${this._conductorName}Controller`] = conductorController;
 
-      conductorController && conductorController._addMusician(this);
+      this._hasConductor && this._conductorController._addMusician(this);
     }
   }
 
@@ -29,7 +33,34 @@ export default class extends Controller {
     ];
   }
 
+  _removeMusician(musicianController) {
+    const index = this._musicianControllers.indexOf(musicianController);
+
+    if (index > -1) {
+      this._musicianControllers.splice(index, 1);
+    }
+  }
+
+  get _hasConductor() {
+    return typeof this._conductorController !== "undefined";
+  }
+
+  get _conductorController() {
+    return this[`${this._conductorName}Controller`];
+  }
+
+  get _musicianControllers() {
+    return this[`${this._musicianName}Controllers`];
+  }
+
   get _conductorName() {
     return this.constructor.conductorId || `${this.identifier}s`;
+  }
+
+  get _musicianName() {
+    return (
+      this.constructor.musicianId ||
+      `${this.identifier.slice(0, this.identifier.length - 1)}`
+    );
   }
 }

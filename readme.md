@@ -59,6 +59,11 @@ export default class extends Conductor {
     super.connect();
   }
 
+  disconnect() {
+    // if you overwrite disconnect you must call super!!!!
+    super.disconnect();
+  }
+
   update() {
     // this.itemControllers is an array of item stimulus controllers
     // this.itemControllers.length -> 3
