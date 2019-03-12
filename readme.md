@@ -1,4 +1,15 @@
 <h1 align="center">Stimulus-Conductor</h1>
+<p align="center">
+  <a href="https://www.npmjs.com/package/stimulus-conductor" rel="nofollow">
+    <img src="https://badge.fury.io/js/stimulus-conductor.svg" alt="npm version">
+  </a>
+  <a href="https://circleci.com/gh/adrienpoly/stimulus-conductor" rel="nofollow">
+  <img src="https://circleci.com/gh/adrienpoly/stimulus-conductor.svg?style=svg" alt="CircleCi build status">
+  </a>
+  <a href="https://codecov.io/gh/adrienpoly/stimulus-conductor">
+    <img src="https://codecov.io/gh/adrienpoly/stimulus-conductor/branch/master/graph/badge.svg" alt="Coverage"/>
+  </a>
+</p>
 
 <p align="center">
   <b>👩‍👧‍👦 👨‍👧‍👦 : An optionated Stimulus Controller to easily manage Parent/Children controllers with conventions</b></br>
