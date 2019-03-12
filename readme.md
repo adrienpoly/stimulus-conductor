@@ -1,8 +1,7 @@
 <h1 align="center">Stimulus-Conductor</h1>
 
 <p align="center">
-  <b>👩‍👧‍👦 👨‍👧‍👦 : An optionated Stimulus Controller to easily manage parent/children controllers</b></br>
-  <sub>Only ~0.3kb <sub>
+  <b>👩‍👧‍👦 👨‍👧‍👦 : An optionated Stimulus Controller to easily manage Parent/Children controllers</b></br>
 </p>
 <br />
 
@@ -27,13 +26,17 @@ or
 $ npm i stimulus-conductor
 ```
 
+#### Convetions
+
+There is a single convetion to remember to use this package:
+
+**Parent conductor is the plural of the children items name**
+
+- `todo` controllers are conducted by a `todos` controller
+- `item` controllers are conducted by a `items` controller
+- `chart` controllers are conducted by a `charts` controller
+
 #### Define your html
-
-Parent conductor is the plural of the item name:
-
-- `todo` is conducted by `todos`
-- `item` is conducted by `items`
-- `chart` is conducted by `charts`
 
 ```html
 <div data-controller="items">
@@ -52,14 +55,18 @@ import Conductor from "stimulus-conductor";
 // create a parent controller by extending stimulus-conductor controller
 export default class extends Conductor {
   connect() {
+    // if you overwrite connect you must call super!!!!
     super.connect();
+  }
 
-    // you can access to the children controllers like this
+  update() {
     // this.itemControllers is an array of item stimulus controllers
     // this.itemControllers.length -> 3
   }
 }
 ```
+
+By convention the parent controller has a new class method `this.itemControllers` that return an array of all children controllers
 
 #### Define your children controllers by extending `stimulus-conductor`
 
@@ -70,6 +77,7 @@ import Conductor from "stimulus-conductor";
 // create a kid controller by extending stimulus-conductor controller
 export default class extends Conductor {
   connect() {
+    // if you overwrite connect you must call super!!!!
     super.connect();
 
     // you can access to the parent controller like this
@@ -78,20 +86,18 @@ export default class extends Conductor {
 }
 ```
 
+By convention all children controllers have a new class method `this.itemsController` that return the parent controller
+
 ## Example
 
-An very basic todo list example is available here : [playground](./playground)
+An very basic todo list example is available on Glitch :
 
-You can start it as follow:
-
-```bash
-git clone https://github.com/adrienpoly/stimulus-conductor.git
-cd stimulus-conductor
-yarn install
-yarn start
-```
+- [Todo list code ](https://glitch.com/edit/#!/stimulus-conductor)
+- [Live demo ](https://stimulus-conductor.glitch.me/)
 
 ## Limitations
+
+#### Plurals
 
 Currently the library makes a very simple plural of the controller name by adding a `s`at the end of the word:
 
@@ -99,6 +105,10 @@ Currently the library makes a very simple plural of the controller name by addin
 - `item` is conducted by `items`
 
 more complex plurals (child/children) are not yet supported
+
+#### Nesting
+
+Currently it only works with nested parent/children elements
 
 ## Contributing
 
