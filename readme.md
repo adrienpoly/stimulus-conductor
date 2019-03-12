@@ -50,7 +50,7 @@ Parent conductor is the plural of the item name:
 import Conductor from "stimulus-conductor";
 
 // create a parent controller by extending stimulus-conductor controller
-export default class extends conductor {
+export default class extends Conductor {
   connect() {
     super.connect();
 
@@ -68,7 +68,7 @@ export default class extends conductor {
 import Conductor from "stimulus-conductor";
 
 // create a kid controller by extending stimulus-conductor controller
-export default class extends conductor {
+export default class extends Conductor {
   connect() {
     super.connect();
 
