@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <b>👩‍👧‍👦 👨‍👧‍👦 : An optionated Stimulus Controller to easily manage Parent/Children controllers with conventions</b></br>
+  <b>👩‍👧‍👦 👨‍👧‍👦 : An opinionated Stimulus Controller to easily manage Parent/Children controllers with conventions</b></br>
 </p>
 <br />
 
