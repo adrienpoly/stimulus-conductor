@@ -19,7 +19,7 @@
 - **Conventions**: Parent/children Stimulus controllers defined by simple conventions
 - **Has many** : an `items` controller has many `item` controllers
 - **Belongs to** : `item` controllers belong to an `items` controller
-- **MIT Licensed**: free for personal and commercial use
+
 
 ## Getting started
 
@@ -43,9 +43,9 @@ There is a single convention to remember to use this package:
 
 > **Parent conductor is the plural of the children items name**
 >
-> - `todo` controllers are conducted by an `todos` controller
+> - `todo` controllers are conducted by a `todos` controller
 > - `item` controllers are conducted by an `items` controller
-> - `chart` controllers are conducted by an `charts` controller
+> - `chart` controllers are conducted by a `charts` controller
 
 ### Define your html
 
