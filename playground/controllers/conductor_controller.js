@@ -1,15 +1,15 @@
-import ConductorController from "../../src";
+import ConductorController from '../../src'
 
 export default class extends ConductorController {
   displayAll(e) {
-    console.log("update", this.itemController);
+    console.log('update', this.itemController)
   }
 
   displayDone(e) {
-    console.log("done");
+    console.log('done')
   }
 
   displayUndone(e) {
-    console.log("undone");
+    console.log('undone')
   }
 }

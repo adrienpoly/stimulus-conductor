@@ -122,7 +122,7 @@
     }, {
       key: "_hasConductor",
       get: function () {
-        return typeof this._conductorController !== "undefined";
+        return typeof this._conductorController !== 'undefined';
       }
     }, {
       key: "_conductorController",

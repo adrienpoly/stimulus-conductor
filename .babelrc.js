@@ -3,26 +3,23 @@ module.exports = {
     test: {
       plugins: [
         [
-          "istanbul",
+          'istanbul',
           {
-            exclude: ["spec/**/*.js"]
-          }
-        ]
-      ]
-    }
+            exclude: ['spec/**/*.js'],
+          },
+        ],
+      ],
+    },
   },
   presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
         targets: {
-          node: "current"
-        }
-      }
-    ]
+          node: 'current',
+        },
+      },
+    ],
   ],
-  plugins: [
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-transform-classes"
-  ]
-};
+  plugins: ['@babel/plugin-proposal-class-properties', '@babel/plugin-transform-classes'],
+}
