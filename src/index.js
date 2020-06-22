@@ -10,20 +10,20 @@ export default class extends Controller {
   }
 
   _searchForConductor() {
-    const conductor = this.element.closest(`[data-controller*="${this._conductorName}"]`)
+    const conductor = this.element.parentElement.closest(`[data-controller*="${this._conductorName}"]`)
 
     if (conductor) {
       const conductorController = this.application.getControllerForElementAndIdentifier(conductor, this._conductorName)
 
-      this[`${this._conductorName}Controller`] = conductorController
+      this[this._conductorControllerKey] = conductorController
 
       this._hasConductor && this._conductorController._addMusician(this)
     }
   }
 
   _addMusician(musicianController) {
-    this[`${musicianController.identifier}Controllers`] = [
-      ...(this[`${musicianController.identifier}Controllers`] || []),
+    this[this._musicianControllersKey] = [
+      ...(this[this._musicianControllersKey] || []),
       musicianController,
     ]
   }
@@ -40,12 +40,20 @@ export default class extends Controller {
     return typeof this._conductorController !== 'undefined'
   }
 
+  get _conductorControllerKey() {
+    return `${this._conductorName}Controller`
+  }
+
+  get _musicianControllersKey() {
+    return `${this._musicianName}Controllers`
+  }
+
   get _conductorController() {
-    return this[`${this._conductorName}Controller`]
+    return this[this._conductorControllerKey]
   }
 
   get _musicianControllers() {
-    return this[`${this._musicianName}Controllers`]
+    return this[this._musicianControllersKey]
   }
 
   get _conductorName() {
