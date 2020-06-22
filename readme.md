@@ -20,7 +20,6 @@
 - **Has many** : an `items` controller has many `item` controllers
 - **Belongs to** : `item` controllers belong to an `items` controller
 
-
 ## Getting started
 
 This assumes that you have [Stimulus](https://stimulusjs.org/handbook/installing) already installed.
@@ -61,18 +60,18 @@ There is a single convention to remember to use this package:
 
 ```js
 // ./controllers/items_controller.js
-import Conductor from "stimulus-conductor";
+import Conductor from 'stimulus-conductor'
 
 // create a parent controller by extending stimulus-conductor controller
 export default class extends Conductor {
   connect() {
     // if you overwrite connect you must call super!!!!
-    super.connect();
+    super.connect()
   }
 
   disconnect() {
     // if you overwrite disconnect you must call super!!!!
-    super.disconnect();
+    super.disconnect()
   }
 
   update() {
@@ -88,13 +87,13 @@ export default class extends Conductor {
 
 ```js
 // ./controllers/item_controller.js
-import Conductor from "stimulus-conductor";
+import Conductor from 'stimulus-conductor'
 
 // create a kid controller by extending stimulus-conductor controller
 export default class extends Conductor {
   connect() {
     // if you overwrite connect you must call super!!!!
-    super.connect();
+    super.connect()
 
     // you can access to the parent controller like this
     // this.itemsController is the stimulus controller for the parent controller
@@ -103,6 +102,24 @@ export default class extends Conductor {
 ```
 
 > By **convention** all children controllers have a new class method `this.itemsController` that return the parent controller
+
+### Inflections
+
+Sometime plurals are not just as simple as adding a `s` at the end. You can overide the musician and conductor name by setting the static `musicianId` and `conductorId` values.
+
+```js
+// your conductor todo_controller.js
+export default class extends Controller {
+  static musicianId = 'todo-item'
+  // ...
+}
+
+// your musicians todo-item_controller.js
+export default class extends Controller {
+  static conductorId = 'todo'
+  // ...
+}
+```
 
 ## Example
 
