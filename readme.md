@@ -103,7 +103,7 @@ export default class extends Conductor {
 
 > By **convention** all children controllers have a new class method `this.itemsController` that return the parent controller
 
-### Inflections
+### Inflections & custom naming
 
 Sometime plurals are not just as simple as adding a `s` at the end. You can overide the musician and conductor name by setting the static `musicianId` and `conductorId` values.
 
