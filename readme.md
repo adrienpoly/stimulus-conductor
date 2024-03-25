@@ -27,13 +27,13 @@ This assumes that you have [Stimulus](https://stimulusjs.org/handbook/installing
 In your project just add the `stimulus-conductor` package.
 
 ```bash
-$ yarn add stimulus-conductor
+yarn add stimulus-conductor
 ```
 
 or
 
 ```bash
-$ npm i stimulus-conductor
+npm i stimulus-conductor
 ```
 
 ### Conventions
